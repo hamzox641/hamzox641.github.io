@@ -7,10 +7,8 @@ import 'package:glaz/common/heading.dart';
 import 'package:glaz/constants/constants.dart';
 import 'package:glaz/controllers/category_controler.dart';
 import 'package:glaz/views/home/all_commencer.dart';
-import 'package:glaz/views/home/plats_pour_commencer.dart';
 import 'package:glaz/views/home/widgets/all_boissons.dart';
 import 'package:glaz/views/home/widgets/boisson_list.dart';
-import 'package:glaz/views/home/widgets/category_foods_list.dart';
 import 'package:glaz/views/home/widgets/commencer_liste.dart';
 import 'package:glaz/views/home/widgets/dessert.list.dart';
 import 'package:glaz/views/home/widgets/plats_list.dart';
@@ -84,21 +82,7 @@ class HomePage extends StatelessWidget {
                       const BoissonList(),
                     ],
                   )
-                : CustomContainer(
-                    cotainercontent: Column(
-                    children: [
-                      Heading(
-                        more: true,
-                        text: "Explore ${controller.categoryValue} Category",
-                        onTap: () {
-                          Get.to(() => const PlatPourCommencer(),
-                              transition: Transition.cupertino,
-                              duration: const Duration(microseconds: 900));
-                        },
-                      ),
-                      const CategoryFoodsList()
-                    ],
-                  )),
+                : CustomContainer(cotainercontent: Column()),
           )
         ])),
       ),
