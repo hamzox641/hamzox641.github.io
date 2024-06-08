@@ -6,9 +6,7 @@ import 'package:glaz/common/app_style.dart';
 import 'package:glaz/common/reusable_text.dart';
 import 'package:glaz/constants/constants.dart';
 import 'package:glaz/models/boisson_model.dart';
-import 'package:glaz/models/dessert_model.dart';
 import 'package:glaz/views/boisson/boisson_page.dart';
-import 'package:glaz/views/dessert/dessert_page.dart';
 import 'package:glaz/views/home/rating/rating_dessert_page.dart';
 
 // ignore: must_be_immutable
