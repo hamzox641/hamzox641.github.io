@@ -12,7 +12,7 @@ on:
       - develop
 
 jobs:
-  build: 
+  build:
     name: Build & Release
     runs-on: ubuntu-latest
     steps:
@@ -28,7 +28,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.3.10'  # Assure-toi d'utiliser une version compatible
+          flutter-version: '3.19.5'  # Spécifie la version de Flutter 3.19.5
 
       - name: Get Flutter dependencies
         run: flutter pub get
