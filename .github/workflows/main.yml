@@ -31,10 +31,10 @@ jobs:
           flutter-version: '3.19.5'  # Spécifie la version de Flutter 3.19.5
 
       - name: Get Flutter dependencies
-        run: flutter pub get
+        run: flutter pub get 
 
       - name: Run Flutter tests
-        run: flutter test      
+        run: flutter test 
 
       - name: Build APK
         run: flutter build apk --debug --split-per-abi
