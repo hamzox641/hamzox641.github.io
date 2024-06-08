@@ -21,4 +21,4 @@ const kOffWhite = Color(0xffF3F4F8);
 double height = 926.h;
 double width = 428.w;
 
-const String appBaseUrl = 'https://5cd7-196-115-8-128.ngrok-free.app';
+const String appBaseUrl = 'https://f20b-196-115-8-128.ngrok-free.app';
