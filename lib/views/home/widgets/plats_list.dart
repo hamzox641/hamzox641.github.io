@@ -4,11 +4,12 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:glaz/common/shimmers/nearby_shimmer.dart';
-import 'package:glaz/hooks/fetch_Foods.dart';
 import 'package:glaz/models/foods_model.dart';
 import 'package:glaz/views/food/food_page.dart';
 
 import 'package:glaz/views/home/widgets/suite_widget.dart';
+
+import '../../../hooks/fetch_foods.dart';
 
 class PlatList extends HookWidget {
   const PlatList({super.key});
