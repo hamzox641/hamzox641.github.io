@@ -25,16 +25,10 @@ jobs:
           distribution: 'adopt' # distribution of Java, can be adopt, zulu, or any other distribution
           java-version: '12'
 
-      - name: Print architecture
-        run: uname -a
-
-      - name: Print Flutter channel
-        run: flutter channel
-
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '2.2.0'
+          flutter-version: 'stable'
 
       - name: Get Flutter dependencies
         run: flutter pub get
