@@ -33,32 +33,35 @@ class CustomAppbar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                CircleAvatar(
-                  radius: 30.r,
-                  backgroundColor: kSecondary,
-                  backgroundImage: const AssetImage('assets/images/glaz11.jpg'),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 6.h, left: 8.w),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ReusableText(
-                        text: "GLAZ",
-                        style: appStyle(20, kLightWhite, FontWeight.w600),
-                      ),
-                      ReusableText(
-                        text: "23/25,rue Ahmed El Mokri Casablanca",
-                        style: appStyle(12, kSecondary, FontWeight.w600),
-                      ),
-                    ],
+            Flexible(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  CircleAvatar(
+                    radius: 30.r,
+                    backgroundColor: kSecondary,
+                    backgroundImage:
+                        const AssetImage('assets/images/glaz11.jpg'),
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 6.h, left: 8.w),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ReusableText(
+                          text: "GLAZ",
+                          style: appStyle(20, kLightWhite, FontWeight.w600),
+                        ),
+                        ReusableText(
+                          text: "23/25, rue Ahmed El Mokri Casablanca",
+                          style: appStyle(12, kSecondary, FontWeight.w600),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
             SvgPicture.asset(
               open
