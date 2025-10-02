@@ -102,6 +102,11 @@ nav {
     overflow: hidden;
 }
 
+.hero.hero-small {
+    min-height: 50vh;
+    padding: 6rem 2rem 2rem;
+}
+
 .hero::before {
     content: '';
     position: absolute;
