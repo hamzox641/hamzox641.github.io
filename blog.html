@@ -3,180 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Ahmed ZARIDI</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Blog - Hamza Nadif</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Ahmed ZARIDI</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">À propos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="projects.html">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-            </div>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Hamza Nadif</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
-    <section class="py-5 mt-5">
+    <!-- Blog Hero -->
+    <section class="hero" style="min-height: 60vh;">
         <div class="container">
-            <h1 class="text-center mb-5">Blog - Expériences Non Académiques</h1>
-            
-            <div class="row">
-                <!-- Article 1 -->
-                <div class="col-lg-8 mx-auto mb-5">
-                    <article class="blog-post">
-                        <div class="blog-header mb-4">
-                            <h2>Mon Parcours en Développement d'APIs RESTful</h2>
-                            <div class="blog-meta text-muted mb-3">
-                                <i class="fas fa-calendar me-2"></i>15 Décembre 2024 |
-                                <i class="fas fa-tag ms-3 me-2"></i>API Development, Backend
-                            </div>
-                        </div>
-                        
-                        <div class="blog-content">
-                            <p class="lead">
-                                Durant mon stage chez HPS sur le projet CartelBancaire API, j'ai pu approfondir mes compétences en développement d'APIs RESTful sécurisées pour le secteur bancaire.
-                            </p>
-                            
-                            <h4>Les Défis Rencontrés</h4>
-                            <p>
-                                Le principal défi était de garantir la sécurité des transactions tout en maintenant des performances optimales. J'ai implémenté :
-                            </p>
-                            <ul>
-                                <li>Authentification JWT avec refresh tokens</li>
-                                <li>Validation robuste des données d'entrée</li>
-                                <li>Gestion des erreurs centralisée</li>
-                                <li>Tests unitaires et d'intégration complets</li>
-                            </ul>
-                            
-                            <h4>Technologies Utilisées</h4>
-                            <div class="technologies mb-4">
-                                <span class="badge bg-primary">Spring Boot</span>
-                                <span class="badge bg-primary">PostgreSQL</span>
-                                <span class="badge bg-primary">JWT</span>
-                                <span class="badge bg-primary">Docker</span>
-                                <span class="badge bg-primary">Swagger</span>
-                            </div>
-                            
-                            <blockquote class="blockquote bg-light p-3 rounded">
-                                <p class="mb-0">"La sécurité des APIs bancaires nécessite une attention particulière à chaque étape du développement."</p>
-                            </blockquote>
-                        </div>
-                    </article>
-                </div>
+            <h1 class="section-title">Blog</h1>
+            <p class="section-subtitle">Partagez mes réflexions, apprentissages et découvertes en Machine Learning et développement</p>
+        </div>
+    </section>
 
-                <!-- Article 2 -->
-                <div class="col-lg-8 mx-auto mb-5">
-                    <article class="blog-post">
-                        <div class="blog-header mb-4">
-                            <h2>Intégration de l'IA dans les Applications Web Modernes</h2>
-                            <div class="blog-meta text-muted mb-3">
-                                <i class="fas fa-calendar me-2"></i>10 Décembre 2024 |
-                                <i class="fas fa-tag ms-3 me-2"></i>AI, LLAMA, Next.js
-                            </div>
-                        </div>
-                        
-                        <div class="blog-content">
-                            <p class="lead">
-                                Avec le projet CraftsportIA, j'ai exploré l'intégration des modèles de langage (LLAMA 3) dans une architecture microservices.
-                            </p>
-                            
-                            <h4>Architecture du Projet</h4>
-                            <p>
-                                CraftsportIA utilise une approche microservices avec :
-                            </p>
-                            <ul>
-                                <li>Next.js pour le frontend dynamique</li>
-                                <li>Elasticsearch pour le stockage des données</li>
-                                <li>API Gateway pour la gestion des requêtes</li>
-                                <li>Service d'analyse de données dédié</li>
-                            </ul>
-                            
-                            <h4>Apprentissages Clés</h4>
-                            <p>
-                                L'intégration de l'IA dans des applications production-ready nécessite une attention particulière à :
-                            </p>
-                            <ul>
-                                <li>La latence des requêtes</li>
-                                <li>La gestion du contexte des modèles</li>
-                                <li>La scalabilité des services</li>
-                                <li>La sécurité des données sensibles</li>
-                            </ul>
-                            
-                            <div class="technologies mb-4">
-                                <span class="badge bg-primary">Next.js</span>
-                                <span class="badge bg-primary">LLAMA 3</span>
-                                <span class="badge bg-primary">Elasticsearch</span>
-                                <span class="badge bg-primary">Microservices</span>
-                                <span class="badge bg-primary">Docker</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- Article 3 -->
-                <div class="col-lg-8 mx-auto mb-5">
-                    <article class="blog-post">
-                        <div class="blog-header mb-4">
-                            <h2>Développement Full-Stack avec Authentication JWT</h2>
-                            <div class="blog-meta text-muted mb-3">
-                                <i class="fas fa-calendar me-2"></i>5 Décembre 2024 |
-                                <i class="fas fa-tag ms-3 me-2"></i>JWT, React, Node.js
-                            </div>
-                        </div>
-                        
-                        <div class="blog-content">
-                            <p class="lead">
-                                Le projet MaghrebVoyage m'a permis de maîtriser l'implémentation d'un système d'authentification sécurisé avec JWT.
-                            </p>
-                            
-                            <h4>Stack Technique Complète</h4>
-                            <p>
-                                Frontend : React avec gestion d'état centralisée<br>
-                                Backend : Node.js avec Express<br>
-                                Base de données : MongoDB avec Mongoose<br>
-                                Authentification : JWT avec refresh mechanism
-                            </p>
-                            
-                            <h4>Bonnes Pratiques Implémentées</h4>
-                            <ul>
-                                <li>Stockage sécurisé des tokens</li>
-                                <li>Validation côté serveur renforcée</li>
-                                <li>Gestion des permissions utilisateur</li>
-                                <li>Logs de sécurité détaillés</li>
-                            </ul>
-                            
-                            <div class="technologies mb-4">
-                                <span class="badge bg-primary">React</span>
-                                <span class="badge bg-primary">Node.js</span>
-                                <span class="badge bg-primary">MongoDB</span>
-                                <span class="badge bg-primary">JWT</span>
-                                <span class="badge bg-primary">Express.js</span>
-                            </div>
-                        </div>
-                    </article>
+    <!-- Blog Section -->
+    <section class="section">
+        <div class="container">
+            <div class="card">
+                <div style="text-align: center; padding: 3rem;">
+                    <i class="fas fa-pen-fancy" style="font-size: 4rem; color: var(--primary); margin-bottom: 2rem;"></i>
+                    <h2 style="margin-bottom: 1rem;">Blog en construction</h2>
+                    <p style="color: var(--text-muted); font-size: 1.2rem;">
+                        Je travaille actuellement sur du contenu de qualité pour partager mes connaissances et 
+                        expériences en Machine Learning, Computer Vision et développement.
+                    </p>
+                    <p style="color: var(--text-muted); margin-top: 1rem;">
+                        Revenez bientôt pour découvrir mes articles !
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-dark text-white text-center py-4">
-        <div class="container">
-            <p>&copy; 2024 Ahmed ZARIDI. Tous droits réservés.</p>
-        </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Hamza Nadif. Tous droits réservés.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
