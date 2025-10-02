@@ -3,134 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À propos - Ahmed ZARIDI</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>À propos - Hamza Nadif</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Ahmed ZARIDI</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="about.html">À propos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="projects.html">Projets</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-            </div>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Hamza Nadif</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- About Section -->
-    <section class="py-5 mt-5">
+    <!-- About Hero -->
+    <section class="hero" style="min-height: 60vh;">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <h1 class="text-center mb-5">À Propos de Moi</h1>
-                    
-                    <div class="about-content">
-                        <p class="lead">
-                            Je suis <strong>Ahmed ZARIDI</strong>, étudiant en deuxième année de Master Machine Learning et Intelligence Artificielle. 
-                            Passionné par la conception et le développement de solutions robustes basées sur l'IA, les APIs et le cloud.
-                        </p>
+            <h1 class="section-title">À Propos de Moi</h1>
+            <p class="section-subtitle">Découvrez mon parcours, mes compétences et ma passion pour l'intelligence artificielle</p>
+        </div>
+    </section>
 
-                        <p>
-                            J'aime combler le fossé entre le développement et les opérations pour créer des applications innovantes et scalables. 
-                            Mon parcours m'a permis d'acquérir une expérience pratique à travers des stages chez HPS (projet CartelBancaire API) 
-                            et Lumia Technologies (projet Cartifieportia), ainsi que des projets académiques comme BusApp.
-                        </p>
-
-                        <p>
-                            Je suis actuellement à la recherche d'un stage de fin d'études (PFE) pour appliquer mes compétences en machine learning, 
-                            développement logiciel et DevOps à des défis concrets et continuer à progresser en tant qu'ingénieur logiciel.
-                        </p>
-                    </div>
-
-                    <!-- Informations personnelles -->
-                    <div class="row mt-5">
-                        <div class="col-md-6">
-                            <div class="info-card mb-4">
-                                <h4><i class="fas fa-envelope text-primary me-3"></i>EMAIL</h4>
-                                <p>ahmedzorial2i@gmx.com</p>
-                            </div>
-                            <div class="info-card mb-4">
-                                <h4><i class="fas fa-phone text-primary me-3"></i>TÉLÉPHONE</h4>
-                                <p>(+212) 67399596</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="info-card mb-4">
-                                <h4><i class="fas fa-birthday-cake text-primary me-3"></i>DATE DE NAISSANCE</h4>
-                                <p>06-09-2001</p>
-                            </div>
-                            <div class="info-card mb-4">
-                                <h4><i class="fas fa-map-marker-alt text-primary me-3"></i>LOCALISATION</h4>
-                                <p>Laymouna, Casablanca</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Téléchargement CV -->
-                    <div class="text-center mt-5">
-                        <a href="assets/documents/cv.pdf" class="btn btn-primary btn-lg" download>
-                            <i class="fas fa-download me-2"></i>Télécharger mon CV
-                        </a>
-                    </div>
+    <!-- About Content -->
+    <section class="section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <h3>Mon Parcours</h3>
+                    <p>
+                        Je suis actuellement étudiant en Master d'Excellence en Machine Learning et Intelligence Artificielle 
+                        à l'Université Abdelmalek Essaâdi de Tétouan. Mon parcours académique m'a permis de développer une 
+                        solide expertise en Deep Learning, traitement de données et développement full-stack.
+                    </p>
+                    <p>
+                        Titulaire d'une licence en Mathématiques et Informatique de l'Université Hassan II, j'ai consolidé 
+                        mes connaissances théoriques et pratiques en intelligence artificielle à travers divers projets 
+                        académiques et stages professionnels.
+                    </p>
+                    <p>
+                        Ma passion pour l'IA me pousse à explorer constamment de nouvelles technologies et à développer 
+                        des solutions innovantes qui combinent Machine Learning, Computer Vision et développement d'applications.
+                    </p>
+                </div>
+                <div class="about-content">
+                    <h3>Compétences Techniques</h3>
+                    <ul class="skills-list">
+                        <li><strong>Langages :</strong> Python, SQL, Java, JavaScript, Dart</li>
+                        <li><strong>IA & ML :</strong> Scikit-learn, TensorFlow, PyTorch, Keras</li>
+                        <li><strong>Data Science :</strong> Pandas, NumPy, Matplotlib, Seaborn</li>
+                        <li><strong>Computer Vision :</strong> YOLOv8, Reconnaissance Faciale, Open3D</li>
+                        <li><strong>Bases de données :</strong> MySQL, PostgreSQL, MongoDB</li>
+                        <li><strong>Frameworks :</strong> React, Node.js, Flutter, Django</li>
+                        <li><strong>Outils :</strong> Jupyter Notebook, Google Colab, VS Code, Git</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Compétences -->
-    <section class="py-5 bg-light">
+    <!-- Experience Section -->
+    <section class="section section-alt">
         <div class="container">
-            <h2 class="text-center mb-5">Ce que je fais</h2>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="skill-item">
-                        <i class="fas fa-laptop-code fa-2x text-primary mb-3"></i>
-                        <h4>Software Development</h4>
-                        <p>Conception et développement d'applications robustes et scalables, d'APIs et de solutions logicielles de haute qualité.</p>
-                    </div>
+            <h2 class="section-title">Expériences Professionnelles</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Stagiaire en Intelligence Artificielle et Développement Full-Stack</h4>
+                    <p class="timeline-date">Hauxplore, Casablanca | Septembre 2025 - Présent</p>
+                    <p>
+                        <strong>Projet Analyse de CV :</strong> Développement et intégration d'un module d'extraction 
+                        de données de CVs utilisant un LLM local dans une architecture full-stack (Django, React).
+                    </p>
+                    <p>
+                        <strong>Projet Surveillance Intelligente :</strong> Création d'un système de vision par ordinateur 
+                        combinant détection (YOLOv8), tracking en temps réel et reconnaissance faciale avec MySQL.
+                    </p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="skill-item">
-                        <i class="fas fa-cloud fa-2x text-primary mb-3"></i>
-                        <h4>DevOps</h4>
-                        <p>Implémentation de pipelines CI/CD, déploiements cloud et optimisation des opérations système pour la fiabilité et l'efficacité.</p>
-                    </div>
+
+                <div class="timeline-item">
+                    <h4>Stage d'Été en Intelligence Artificielle 3D</h4>
+                    <p class="timeline-date">3D Smart Factory, Mohamadia | Juin 2025 - Septembre 2025</p>
+                    <p>
+                        Développement d'un pipeline d'IA 3D complet pour l'analyse sémantique de nuages de points. 
+                        Implémentation de modèles Deep Learning (PointNet++) pour la classification et segmentation d'objets.
+                    </p>
+                    <p>
+                        Conception d'un module de reconstruction CAO (RANSAC) et intégration d'un LLM avec application 
+                        de démonstration interactive Streamlit.
+                    </p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="skill-item">
-                        <i class="fas fa-cogs fa-2x text-primary mb-3"></i>
-                        <h4>API Development</h4>
-                        <p>Création d'APIs RESTful sécurisées et performantes pour connecter différents systèmes et services.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="skill-item">
-                        <i class="fas fa-chart-bar fa-2x text-primary mb-3"></i>
-                        <h4>Data Science & Testing</h4>
-                        <p>Analyse de données, développement de modèles prédictifs et implémentation de stratégies de test complètes.</p>
-                    </div>
+
+                <div class="timeline-item">
+                    <h4>Stage de Fin d'Études</h4>
+                    <p class="timeline-date">Restaurant Glaz, Casablanca | Février 2023 - Juin 2023</p>
+                    <p>
+                        Développement d'une application mobile full-stack (Flutter, Node.js, MongoDB) pour la gestion 
+                        des réservations. Conception de l'architecture, modélisation UML et test des API (Postman, ngrok).
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-dark text-white text-center py-4">
+    <!-- Education Section -->
+    <section class="section">
         <div class="container">
-            <p>&copy; 2024 Ahmed ZARIDI. Tous droits réservés.</p>
+            <h2 class="section-title">Formation</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Master d'Excellence en Machine Learning et Intelligence Artificielle</h4>
+                    <p class="timeline-date">Université Abdelmalek Essaâdi, Tétouan | Septembre 2024 - Présent</p>
+                    <p>
+                        Formation avancée en Machine Learning, Deep Learning, Computer Vision et traitement du langage naturel. 
+                        Projets académiques incluant la résolution d'EDP inverses, GNN pour la toxicité moléculaire, 
+                        et reconnaissance d'émotions par CNN.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Licence en Mathématiques et Informatique</h4>
+                    <p class="timeline-date">Université Hassan II, Casablanca | Septembre 2023 - Juillet 2024</p>
+                    <p>
+                        Formation solide en mathématiques appliquées, algorithmique, structures de données et 
+                        développement logiciel. Projet de fin d'études axé sur le développement d'applications.
+                    </p>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-certificate"></i></div>
+                    <h3>IBM Certifications</h3>
+                    <p>Python for Data Science, Data Visualization, Machine Learning</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-certificate"></i></div>
+                    <h3>HP Foundation</h3>
+                    <p>Data Science & Analytics, AI for Beginners</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-certificate"></i></div>
+                    <h3>Simplilearn</h3>
+                    <p>Getting Started with Machine Learning, Machine Learning using Python</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Langues</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Arabe</h3>
+                    <p>Langue Maternelle</p>
+                </div>
+                <div class="card">
+                    <h3>Français</h3>
+                    <p>Courant</p>
+                </div>
+                <div class="card">
+                    <h3>Anglais</h3>
+                    <p>Intermédiaire</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Hamza Nadif. Tous droits réservés.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
