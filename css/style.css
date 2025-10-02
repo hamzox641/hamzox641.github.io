@@ -103,16 +103,16 @@ nav {
 }
 
 .hero.hero-small {
-    min-height: 40vh;
-    padding: 6rem 2rem 1rem;
+    min-height: auto;
+    padding: 5rem 2rem 0.5rem;
 }
 
 .hero.hero-small .section-title {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .hero.hero-small .section-subtitle {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .hero::before {
@@ -229,6 +229,10 @@ nav {
 /* ==================== Sections ==================== */
 .section {
     padding: 6rem 2rem;
+}
+
+.section-reduce-top {
+    padding: 2rem 2rem 6rem;
 }
 
 .section-alt {
