@@ -6,11 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks.forEach(link => {
         const linkHref = link.getAttribute('href');
         
-        // Ne pas appliquer 'active' au bouton CV (qui a download attribute)
-        if (link.hasAttribute('download')) {
-            return;
-        }
-        
         // Pour les pages principales
         if (linkHref === currentPage) {
             link.classList.add('active');
@@ -125,6 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ==================== Mobile Menu Toggle ====================
 const createMobileMenu = () => {
     const navLinks = document.querySelector('.nav-links');
+    const navCvBtn = document.querySelector('.nav-cv-btn');
     
     if (window.innerWidth <= 768 && !document.querySelector('.menu-toggle')) {
         // Créer le bouton menu
@@ -158,13 +154,26 @@ const createMobileMenu = () => {
             gap: 0.5rem;
             display: none;
             border-top: 1px solid var(--border);
+            z-index: 1000;
         `;
+        
+        // Cacher le bouton CV dans le menu mobile
+        if (navCvBtn) {
+            navCvBtn.style.display = 'none';
+        }
         
         // Gestion du clic
         menuToggle.addEventListener('click', () => {
             const isActive = navLinks.style.display === 'flex';
             navLinks.style.display = isActive ? 'none' : 'flex';
             menuToggle.innerHTML = isActive ? '☰' : '✕';
+            
+            // Afficher/masquer le bouton CV
+            if (navCvBtn) {
+                navCvBtn.style.display = isActive ? 'none' : 'block';
+                navCvBtn.style.margin = '1rem auto 0';
+                navCvBtn.style.width = 'fit-content';
+            }
         });
         
         // Fermer le menu en cliquant sur un lien
@@ -173,6 +182,9 @@ const createMobileMenu = () => {
                 if (window.innerWidth <= 768) {
                     navLinks.style.display = 'none';
                     menuToggle.innerHTML = '☰';
+                    if (navCvBtn) {
+                        navCvBtn.style.display = 'none';
+                    }
                 }
             });
         });
@@ -183,10 +195,14 @@ const createMobileMenu = () => {
 window.addEventListener('resize', () => {
     const navLinks = document.querySelector('.nav-links');
     const menuToggle = document.querySelector('.menu-toggle');
+    const navCvBtn = document.querySelector('.nav-cv-btn');
     
     if (window.innerWidth > 768) {
         // Desktop - reset styles
         navLinks.style.cssText = '';
+        if (navCvBtn) {
+            navCvBtn.style.cssText = '';
+        }
         if (menuToggle) {
             menuToggle.remove();
         }
