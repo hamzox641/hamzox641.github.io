@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks.forEach(link => {
         const linkHref = link.getAttribute('href');
         
+        // Ignorer complètement le bouton CV
+        if (link.classList.contains('cv-btn') || link.hasAttribute('download')) {
+            return; // Ne rien faire pour le bouton CV
+        }
+        
         // Pour les pages principales
         if (linkHref === currentPage) {
             link.classList.add('active');
