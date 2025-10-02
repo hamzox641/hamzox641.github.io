@@ -3,183 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamza Nadif - Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Hamza Nadif - ML & IA Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Hamza Nadif</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">À propos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="projects.html">Projets</a></li>
-                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-            </div>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Hamza Nadif</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section d-flex align-items-center">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h1 class="display-4 fw-bold">Hamza Nadif</h1>
-                    <h2 class="h3 text-primary mb-4">Machine Learning & IA Engineer</h2>
-                    <p class="lead mb-4">Étudiant en Master 2 Machine Learning & IA, passionné par le développement de solutions intelligentes et innovantes.</p>
-                    <div class="hero-buttons">
-                        <a href="projects.html" class="btn btn-primary btn-lg me-3">Voir mes projets</a>
-                        <a href="about.html" class="btn btn-outline-primary btn-lg">À propos de moi</a>
-                    </div>
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Hamza Nadif</h1>
+                <h2>ML & IA Engineer</h2>
+                <p>Étudiant en Master d'Excellence en Machine Learning & IA avec une expertise en Deep Learning et développement full-stack. Passionné par la création de solutions intelligentes, de l'analyse de données à la mise en production.</p>
+                <div class="hero-buttons">
+                    <a href="projects.html" class="btn btn-primary">Voir mes projets</a>
+                    <a href="about.html" class="btn btn-outline">À propos</a>
                 </div>
-                <div class="col-lg-6 text-center">
-                    <div class="profile-image">
-                        <img src="assets/images/profile.jpg" alt="Hamza Nadif" class="img-fluid rounded-circle">
-                    </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-circle">
+                    <img src="assets/images/profile.jpg" alt="Hamza Nadif">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Compétences -->
-    <section class="py-5 bg-light">
+    <!-- Expertise Section -->
+    <section class="section section-alt">
         <div class="container">
-            <h2 class="text-center mb-5">Domaines d'Expertise</h2>
-            <div class="row">
-                <div class="col-md-3 mb-4">
-                    <div class="card h-100 text-center">
-                        <div class="card-body">
-                            <i class="fas fa-brain fa-3x text-primary mb-3"></i>
-                            <h5 class="card-title">Machine Learning</h5>
-                            <p class="card-text">Développement de modèles prédictifs et algorithmes d'IA</p>
-                        </div>
+            <h2 class="section-title">Domaines d'Expertise</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-brain"></i>
                     </div>
+                    <h3>Machine Learning</h3>
+                    <p>Deep Learning, PyTorch, TensorFlow, Keras. Développement de modèles prédictifs et algorithmes d'IA avancés.</p>
                 </div>
-                <div class="col-md-3 mb-4">
-                    <div class="card h-100 text-center">
-                        <div class="card-body">
-                            <i class="fas fa-code fa-3x text-primary mb-3"></i>
-                            <h5 class="card-title">Software Development</h5>
-                            <p class="card-text">Applications robustes et APIs scalables</p>
-                        </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-eye"></i>
                     </div>
+                    <h3>Computer Vision</h3>
+                    <p>YOLOv8, reconnaissance faciale, segmentation d'images et analyse sémantique de nuages de points 3D.</p>
                 </div>
-                <div class="col-md-3 mb-4">
-                    <div class="card h-100 text-center">
-                        <div class="card-body">
-                            <i class="fas fa-cloud fa-3x text-primary mb-3"></i>
-                            <h5 class="card-title">DevOps</h5>
-                            <p class="card-text">CI/CD, déploiement cloud et automatisation</p>
-                        </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-code"></i>
                     </div>
+                    <h3>Full-Stack Development</h3>
+                    <p>React, Node.js, Flutter, Django. Applications robustes et APIs scalables avec architecture microservices.</p>
                 </div>
-                <div class="col-md-3 mb-4">
-                    <div class="card h-100 text-center">
-                        <div class="card-body">
-                            <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
-                            <h5 class="card-title">Data Science</h5>
-                            <p class="card-text">Analyse de données et visualisation</p>
-                        </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
                     </div>
+                    <h3>Data Science</h3>
+                    <p>Pandas, NumPy, Matplotlib, Seaborn. Analyse de données, visualisation et modélisation statistique.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Blog (Aperçu des derniers articles) -->
-    <section class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Derniers Articles du Blog</h2>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Mon Parcours en Développement d'APIs RESTful</h5>
-                            <p class="card-text text-muted small">
-                                <i class="fas fa-calendar me-2"></i>15 Décembre 2024
-                            </p>
-                            <p class="card-text">
-                                Expériences et apprentissages lors de mon stage chez HPS sur le projet CartelBancaire API...
-                            </p>
-                            <div class="technologies mb-3">
-                                <span class="badge bg-primary">API</span>
-                                <span class="badge bg-primary">Spring Boot</span>
-                                <span class="badge bg-primary">Sécurité</span>
-                            </div>
-                        </div>
-                        <div class="card-footer bg-transparent">
-                            <a href="blog.html" class="btn btn-outline-primary btn-sm">Lire l'article</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Intégration de l'IA dans les Applications Web</h5>
-                            <p class="card-text text-muted small">
-                                <i class="fas fa-calendar me-2"></i>10 Décembre 2024
-                            </p>
-                            <p class="card-text">
-                                Comment j'ai intégré LLAMA 3 dans CraftsportIA avec une architecture microservices...
-                            </p>
-                            <div class="technologies mb-3">
-                                <span class="badge bg-primary">AI</span>
-                                <span class="badge bg-primary">LLAMA 3</span>
-                                <span class="badge bg-primary">Next.js</span>
-                            </div>
-                        </div>
-                        <div class="card-footer bg-transparent">
-                            <a href="blog.html" class="btn btn-outline-primary btn-sm">Lire l'article</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Authentification JWT Sécurisée</h5>
-                            <p class="card-text text-muted small">
-                                <i class="fas fa-calendar me-2"></i>5 Décembre 2024
-                            </p>
-                            <p class="card-text">
-                                Implémentation d'un système d'authentification robuste pour MaghrebVoyage...
-                            </p>
-                            <div class="technologies mb-3">
-                                <span class="badge bg-primary">JWT</span>
-                                <span class="badge bg-primary">React</span>
-                                <span class="badge bg-primary">Node.js</span>
-                            </div>
-                        </div>
-                        <div class="card-footer bg-transparent">
-                            <a href="blog.html" class="btn btn-outline-primary btn-sm">Lire l'article</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-4">
-                <a href="blog.html" class="btn btn-primary">Voir tous les articles</a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-dark text-white text-center py-4">
-        <div class="container">
-            <p>&copy; 2024 Hamza Nadif. Tous droits réservés.</p>
-        </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Hamza Nadif. Tous droits réservés.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
