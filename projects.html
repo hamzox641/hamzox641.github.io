@@ -3,113 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projets - Ahmed ZARIDI</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Projets - Hamza Nadif</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Ahmed ZARIDI</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">À propos</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="projects.html">Projets</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-            </div>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Hamza Nadif</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
-    <section class="py-5 mt-5">
+    <!-- Projects Hero -->
+    <section class="hero" style="min-height: 60vh;">
         <div class="container">
-            <h1 class="text-center mb-5">Mes Projets</h1>
-            
-            <div class="row">
-                <!-- Projet HPS -->
-                <div class="col-lg-6 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h4 class="card-title">CartelBancaire API - HPS</h4>
-                            <h6 class="card-subtitle mb-2 text-muted">Stage Professionnel</h6>
-                            <p class="card-text">
-                                Développement d'une API RESTful sécurisée pour le système bancaire. 
-                                Implémentation de fonctionnalités de traitement de transactions, 
-                                gestion des utilisateurs et intégration avec les systèmes existants.
-                            </p>
-                            <div class="technologies">
-                                <span class="badge bg-primary">Java</span>
-                                <span class="badge bg-primary">Spring Boot</span>
-                                <span class="badge bg-primary">REST API</span>
-                                <span class="badge bg-primary">PostgreSQL</span>
-                            </div>
+            <h1 class="section-title">Mes Projets</h1>
+            <p class="section-subtitle">Découvrez mes réalisations en Machine Learning, Computer Vision et développement full-stack</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section">
+        <div class="container">
+            <div class="card-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-image">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Pipeline IA 3D - Analyse Sémantique</h3>
+                        <p class="project-description">
+                            Développement complet d'un pipeline d'intelligence artificielle pour l'analyse sémantique 
+                            de nuages de points 3D. Implémentation de PointNet++ pour la classification et segmentation 
+                            d'objets, avec module de reconstruction CAO (RANSAC) et intégration LLM.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">PointNet++</span>
+                            <span class="tag">Open3D</span>
+                            <span class="tag">Streamlit</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary">Voir le projet</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Projet Lumia Technologies -->
-                <div class="col-lg-6 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h4 class="card-title">Cartifieportia - Lumia Technologies</h4>
-                            <h6 class="card-subtitle mb-2 text-muted">Stage de Développement</h6>
-                            <p class="card-text">
-                                Contribution au projet Cartifieportia avec développement de fonctionnalités avancées.
-                                Livraison de code de haute qualité et participation aux revues de code.
-                            </p>
-                            <div class="technologies">
-                                <span class="badge bg-primary">Python</span>
-                                <span class="badge bg-primary">Django</span>
-                                <span class="badge bg-primary">React</span>
-                                <span class="badge bg-primary">Docker</span>
-                            </div>
+                <!-- Project 2 -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-image">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Système de Surveillance Intelligente</h3>
+                        <p class="project-description">
+                            Système de vision par ordinateur combinant détection d'objets (YOLOv8), tracking en temps réel 
+                            et reconnaissance faciale. Enregistrement automatique des événements dans une base de données MySQL 
+                            avec interface de visualisation.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">YOLOv8</span>
+                            <span class="tag">OpenCV</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary">Voir le projet</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Projet Académique -->
-                <div class="col-lg-6 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h4 class="card-title">BusApp</h4>
-                            <h6 class="card-subtitle mb-2 text-muted">Projet Académique</h6>
-                            <p class="card-text">
-                                Application de gestion et suivi des transports en commun. 
-                                Développement d'une solution complète avec interface utilisateur 
-                                et système de tracking en temps réel.
-                            </p>
-                            <div class="technologies">
-                                <span class="badge bg-primary">Flutter</span>
-                                <span class="badge bg-primary">Firebase</span>
-                                <span class="badge bg-primary">Node.js</span>
-                                <span class="badge bg-primary">MongoDB</span>
-                            </div>
+                <!-- Project 3 -->
+                <div class="project-card" data-category="fullstack">
+                    <div class="project-image">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Analyse de CV Intelligente</h3>
+                        <p class="project-description">
+                            Module d'extraction automatique de données de CVs utilisant un LLM local. Architecture full-stack 
+                            avec backend Django pour le traitement et frontend React pour l'interface utilisateur. 
+                            Parsing avancé et structuration des informations.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Django</span>
+                            <span class="tag">React</span>
+                            <span class="tag">LLM</span>
+                            <span class="tag">NLP</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary">Voir le projet</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Projet Machine Learning -->
-                <div class="col-lg-6 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h4 class="card-title">Système de Recommandation</h4>
-                            <h6 class="card-subtitle mb-2 text-muted">Projet Master ML/IA</h6>
-                            <p class="card-text">
-                                Développement d'un système de recommandation utilisant des algorithmes 
-                                de machine learning. Implémentation de collaborative filtering et 
-                                content-based filtering.
-                            </p>
-                            <div class="technologies">
-                                <span class="badge bg-primary">Python</span>
-                                <span class="badge bg-primary">Scikit-learn</span>
-                                <span class="badge bg-primary">Pandas</span>
-                                <span class="badge bg-primary">TensorFlow</span>
-                            </div>
+                <!-- Project 4 -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-image">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Reconnaissance d'Émotions</h3>
+                        <p class="project-description">
+                            Classification d'images en 7 émotions différentes via réseaux de neurones convolutifs (CNN) 
+                            et Transfer Learning. Utilisation de VGG16 et ResNet50 pour obtenir une précision optimale. 
+                            Application temps réel pour la détection d'émotions.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">CNN</span>
+                            <span class="tag">VGG16</span>
+                            <span class="tag">ResNet50</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-image">
+                        <i class="fas fa-chart-network"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Prédiction de Toxicité Moléculaire</h3>
+                        <p class="project-description">
+                            Modélisation de la toxicité de molécules via Graph Neural Networks (GNN) avec PyTorch Geometric. 
+                            Atteinte d'une précision de 85% dans la prédiction. Représentation des molécules sous forme 
+                            de graphes pour une analyse structurelle approfondie.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">GNN</span>
+                            <span class="tag">Graph Theory</span>
+                            <span class="tag">Chemistry</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card" data-category="iot">
+                    <div class="project-image">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>SmartFlow+ - Gestion Intelligente du Trafic</h3>
+                        <p class="project-description">
+                            Système de détection de véhicules en temps réel (YOLOv8 sur Jetson) et gestion de feux 
+                            tricolores intelligents (Zigbee). Application mobile full-stack (Flutter, Node.js, MongoDB) 
+                            pour la visualisation du trafic. Projet Hackathon AI2SD 2025.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">YOLOv8</span>
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">IoT</span>
+                            <span class="tag">Zigbee</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-image">
+                        <i class="fas fa-function"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Identification de Paramètres - EDP Inverse</h3>
+                        <p class="project-description">
+                            Reconstruction de coefficients de diffusion via méthode variationnelle (FEniCSx) et réseaux 
+                            de neurones (DeepXDE). Application des techniques d'apprentissage profond pour résoudre des 
+                            problèmes inverses en équations différentielles partielles.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">FEniCSx</span>
+                            <span class="tag">DeepXDE</span>
+                            <span class="tag">PDE</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8 -->
+                <div class="project-card" data-category="fullstack">
+                    <div class="project-image">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Application de Réservation Restaurant</h3>
+                        <p class="project-description">
+                            Application mobile full-stack pour la gestion des réservations de restaurant. Développement 
+                            avec Flutter pour le frontend, Node.js pour le backend et MongoDB pour la base de données. 
+                            Conception de l'architecture complète et test des API.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                            <span class="tag">REST API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary">Voir le projet</a>
                         </div>
                     </div>
                 </div>
@@ -117,13 +231,11 @@
         </div>
     </section>
 
-    <footer class="bg-dark text-white text-center py-4">
-        <div class="container">
-            <p>&copy; 2024 Ahmed ZARIDI. Tous droits réservés.</p>
-        </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Hamza Nadif. Tous droits réservés.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
