@@ -91,7 +91,7 @@ if (contactForm) {
         };
         
         // Envoi via EmailJS
-        emailjs.send('service_tnd07yn', 'template_p8gv71i', templateParams)
+        emailjs.send('service_tnd07yn', 'template_fwsujnn', templateParams)
             .then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
                 alert('✅ Message envoyé avec succès! Je vous répondrai bientôt.');
