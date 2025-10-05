@@ -4,20 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-links a');
     
     navLinks.forEach(link => {
-        const linkHref = link.getAttribute('href');
-        
-        // Ignorer complètement le bouton CV
-        if (link.classList.contains('cv-btn') || link.hasAttribute('download')) {
-            return; // Ne rien faire pour le bouton CV
-        }
-        
-        // Pour les pages principales
-        if (linkHref === currentPage) {
-            link.classList.add('active');
-        }
-        
-        // Gestion spéciale pour la page d'accueil
-        if (currentPage === 'index.html' && linkHref === 'index.html') {
+        if (link.getAttribute('href') === currentPage) {
             link.classList.add('active');
         }
     });
@@ -113,9 +100,8 @@ function typeEffect(element, text, speed = 100) {
 // Apply typing effect on hero subtitle if exists
 document.addEventListener('DOMContentLoaded', () => {
     const heroSubtitle = document.querySelector('.hero-content h2');
-    if (heroSubtitle && heroSubtitle.textContent.trim() !== '') {
+    if (heroSubtitle) {
         const originalText = heroSubtitle.textContent;
-        heroSubtitle.textContent = '';
         setTimeout(() => {
             typeEffect(heroSubtitle, originalText, 80);
         }, 500);
@@ -124,14 +110,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ==================== Mobile Menu Toggle ====================
 const createMobileMenu = () => {
+    const nav = document.querySelector('nav');
     const navLinks = document.querySelector('.nav-links');
-    const navCvBtn = document.querySelector('.nav-cv-btn');
     
     if (window.innerWidth <= 768 && !document.querySelector('.menu-toggle')) {
-        // Créer le bouton menu
         const menuToggle = document.createElement('button');
         menuToggle.className = 'menu-toggle';
-        menuToggle.innerHTML = '☰';
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
         menuToggle.style.cssText = `
             background: none;
             border: none;
@@ -139,83 +124,39 @@ const createMobileMenu = () => {
             font-size: 1.5rem;
             cursor: pointer;
             display: block;
-            padding: 0.5rem;
         `;
         
-        // Ajouter au conteneur de navigation
         const navContainer = document.querySelector('.nav-container');
         navContainer.appendChild(menuToggle);
         
-        // Style initial du menu mobile
-        navLinks.style.cssText = `
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background: rgba(15, 23, 42, 0.98);
-            backdrop-filter: blur(10px);
-            flex-direction: column;
-            padding: 1rem;
-            gap: 0.5rem;
-            display: none;
-            border-top: 1px solid var(--border);
-            z-index: 1000;
-        `;
-        
-        // Cacher le bouton CV dans le menu mobile
-        if (navCvBtn) {
-            navCvBtn.style.display = 'none';
-        }
-        
-        // Gestion du clic
         menuToggle.addEventListener('click', () => {
-            const isActive = navLinks.style.display === 'flex';
-            navLinks.style.display = isActive ? 'none' : 'flex';
-            menuToggle.innerHTML = isActive ? '☰' : '✕';
-            
-            // Afficher/masquer le bouton CV
-            if (navCvBtn) {
-                navCvBtn.style.display = isActive ? 'none' : 'block';
-                navCvBtn.style.margin = '1rem auto 0';
-                navCvBtn.style.width = 'fit-content';
-            }
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            icon.className = navLinks.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
         });
         
-        // Fermer le menu en cliquant sur un lien
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    navLinks.style.display = 'none';
-                    menuToggle.innerHTML = '☰';
-                    if (navCvBtn) {
-                        navCvBtn.style.display = 'none';
-                    }
-                }
-            });
-        });
+        // Style mobile menu
+        if (navLinks.classList.contains('nav-links')) {
+            navLinks.style.cssText = `
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(15, 23, 42, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0.5rem;
+                display: none;
+            `;
+        }
     }
 };
 
 // Handle mobile menu on resize
 window.addEventListener('resize', () => {
-    const navLinks = document.querySelector('.nav-links');
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navCvBtn = document.querySelector('.nav-cv-btn');
-    
-    if (window.innerWidth > 768) {
-        // Desktop - reset styles
-        navLinks.style.cssText = '';
-        if (navCvBtn) {
-            navCvBtn.style.cssText = '';
-        }
-        if (menuToggle) {
-            menuToggle.remove();
-        }
-    } else {
-        // Mobile - create menu if not exists
-        if (!menuToggle) {
-            createMobileMenu();
-        }
+    if (window.innerWidth <= 768) {
+        createMobileMenu();
     }
 });
 
@@ -268,6 +209,42 @@ emailLinks.forEach(link => {
             setTimeout(() => {
                 link.textContent = originalText;
             }, 2000);
+        });
+    });
+});
+
+// ==================== Gallery Image Scroll Smooth ====================
+document.addEventListener('DOMContentLoaded', () => {
+    const galleries = document.querySelectorAll('.gallery-images-scroll');
+    
+    galleries.forEach(gallery => {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        gallery.addEventListener('mousedown', (e) => {
+            isDown = true;
+            gallery.style.cursor = 'grabbing';
+            startX = e.pageX - gallery.offsetLeft;
+            scrollLeft = gallery.scrollLeft;
+        });
+
+        gallery.addEventListener('mouseleave', () => {
+            isDown = false;
+            gallery.style.cursor = 'grab';
+        });
+
+        gallery.addEventListener('mouseup', () => {
+            isDown = false;
+            gallery.style.cursor = 'grab';
+        });
+
+        gallery.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - gallery.offsetLeft;
+            const walk = (x - startX) * 2;
+            gallery.scrollLeft = scrollLeft - walk;
         });
     });
 });
