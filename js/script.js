@@ -81,26 +81,25 @@ if (contactForm) {
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
         
-        // Paramètres pour EmailJS
+        // Paramètres pour EmailJS (correspondent à votre template)
         const templateParams = {
-            from_name: name,
-            from_email: email,
-            subject: subject,
-            message: message,
-            to_email: 'hamzanadif73@gmail.com'
+            name: name,        // Correspond à {{name}}
+            email: email,      // Correspond à {{email}}
+            title: subject,    // Correspond à {{title}}
+            message: message   // Correspond à {{message}}
         };
         
         // Envoi via EmailJS
         emailjs.send('service_tnd07yn', 'template_fwsujnn', templateParams)
             .then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
-                alert('✅ Message envoyé avec succès! Je vous répondrai bientôt.');
+                alert('Message envoyé avec succès! Je vous répondrai bientôt.');
                 contactForm.reset();
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer le message';
             }, function(error) {
                 console.log('FAILED...', error);
-                alert('❌ Erreur lors de l\'envoi. Veuillez réessayer ou me contacter directement à hamzanadif73@gmail.com');
+                alert('Erreur lors de l\'envoi. Veuillez réessayer ou me contacter directement à hamzanadif73@gmail.com');
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer le message';
             });
