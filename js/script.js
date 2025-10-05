@@ -50,7 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// ==================== Form Validation (Contact Page) ====================
+// ==================== Form Validation & Submission ====================
+function isValidEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
@@ -58,10 +63,11 @@ if (contactForm) {
         
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value.trim() || 'Contact depuis le portfolio';
         const message = document.getElementById('message').value.trim();
         
         if (!name || !email || !message) {
-            alert('Veuillez remplir tous les champs');
+            alert('Veuillez remplir tous les champs obligatoires');
             return;
         }
         
@@ -70,15 +76,18 @@ if (contactForm) {
             return;
         }
         
-        // Simulate form submission
-        alert('Message envoyé avec succès! Je vous répondrai bientôt.');
-        contactForm.reset();
+        // Créer le lien mailto
+        const mailtoLink = `mailto:hamzanadif73@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+        
+        // Ouvrir le client email
+        window.location.href = mailtoLink;
+        
+        // Réinitialiser le formulaire après un court délai
+        setTimeout(() => {
+            alert('✅ Votre client email va s\'ouvrir. Message envoyé avec succès!');
+            contactForm.reset();
+        }, 1000);
     });
-}
-
-function isValidEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
 }
 
 // ==================== Typing Effect for Hero ====================
@@ -163,38 +172,6 @@ window.addEventListener('resize', () => {
 // Initialize mobile menu if needed
 if (window.innerWidth <= 768) {
     createMobileMenu();
-}
-
-// ==================== Project Filters (Projects Page) ====================
-const projectFilters = document.querySelectorAll('.project-filter');
-if (projectFilters.length > 0) {
-    projectFilters.forEach(filter => {
-        filter.addEventListener('click', () => {
-            const category = filter.dataset.category;
-            
-            // Update active filter
-            projectFilters.forEach(f => f.classList.remove('active'));
-            filter.classList.add('active');
-            
-            // Filter projects
-            const projects = document.querySelectorAll('.project-card');
-            projects.forEach(project => {
-                if (category === 'all' || project.dataset.category === category) {
-                    project.style.display = 'block';
-                    setTimeout(() => {
-                        project.style.opacity = '1';
-                        project.style.transform = 'translateY(0)';
-                    }, 10);
-                } else {
-                    project.style.opacity = '0';
-                    project.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        project.style.display = 'none';
-                    }, 300);
-                }
-            });
-        });
-    });
 }
 
 // ==================== Copy Email to Clipboard ====================
