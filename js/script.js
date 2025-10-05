@@ -4,7 +4,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-links a');
     
     navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
+        const linkHref = link.getAttribute('href');
+        
+        // Ignorer complètement le bouton CV
+        if (link.classList.contains('btn-primary') || link.hasAttribute('download')) {
+            return;
+        }
+        
+        // Pour les pages principales
+        if (linkHref === currentPage) {
+            link.classList.add('active');
+        }
+        
+        // Gestion spéciale pour la page d'accueil
+        if (currentPage === 'index.html' && linkHref === 'index.html') {
             link.classList.add('active');
         }
     });
@@ -55,25 +68,59 @@ const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
+
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value.trim() || 'Contact depuis le portfolio';
         const message = document.getElementById('message').value.trim();
-        
+
         if (!name || !email || !message) {
-            alert('Veuillez remplir tous les champs');
+            alert('Veuillez remplir tous les champs obligatoires');
             return;
         }
-        
+
         if (!isValidEmail(email)) {
             alert('Veuillez entrer une adresse email valide');
             return;
         }
+
+        // Désactiver le bouton pendant l'envoi
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+        submitBtn.disabled = true;
+
+        // Essayer d'ouvrir le client mail
+        const mailtoLink = `mailto:hamzanadif73@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
         
-        // Simulate form submission
-        alert('Message envoyé avec succès! Je vous répondrai bientôt.');
-        contactForm.reset();
+        // Vérifier si on est sur mobile
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        
+        if (!isMobile) {
+            // Sur desktop, utiliser mailto directement
+            try {
+                window.location.href = mailtoLink;
+                setTimeout(() => {
+                    contactForm.reset();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    alert('✅ Client email ouvert ! Votre message est prêt à être envoyé.');
+                }, 1000);
+            } catch (err) {
+                fallbackToAlert(name, email, subject, message, submitBtn, originalText);
+            }
+        } else {
+            // Sur mobile, utiliser la méthode alert
+            fallbackToAlert(name, email, subject, message, submitBtn, originalText);
+        }
     });
+}
+
+function fallbackToAlert(name, email, subject, message, submitBtn, originalText) {
+    alert(`✅ Message prêt à être envoyé !\n\nNom: ${name}\nEmail: ${email}\nSujet: ${subject}\n\nMessage: ${message}\n\nJe vous répondrai dans les plus brefs délais.`);
+    contactForm.reset();
+    submitBtn.innerHTML = originalText;
+    submitBtn.disabled = false;
 }
 
 function isValidEmail(email) {
@@ -100,8 +147,9 @@ function typeEffect(element, text, speed = 100) {
 // Apply typing effect on hero subtitle if exists
 document.addEventListener('DOMContentLoaded', () => {
     const heroSubtitle = document.querySelector('.hero-content h2');
-    if (heroSubtitle) {
+    if (heroSubtitle && heroSubtitle.textContent.trim() !== '') {
         const originalText = heroSubtitle.textContent;
+        heroSubtitle.textContent = '';
         setTimeout(() => {
             typeEffect(heroSubtitle, originalText, 80);
         }, 500);
@@ -110,13 +158,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ==================== Mobile Menu Toggle ====================
 const createMobileMenu = () => {
-    const nav = document.querySelector('nav');
     const navLinks = document.querySelector('.nav-links');
     
     if (window.innerWidth <= 768 && !document.querySelector('.menu-toggle')) {
+        // Créer le bouton menu
         const menuToggle = document.createElement('button');
         menuToggle.className = 'menu-toggle';
-        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        menuToggle.innerHTML = '☰';
         menuToggle.style.cssText = `
             background: none;
             border: none;
@@ -124,39 +172,64 @@ const createMobileMenu = () => {
             font-size: 1.5rem;
             cursor: pointer;
             display: block;
+            padding: 0.5rem;
         `;
         
+        // Ajouter au conteneur de navigation
         const navContainer = document.querySelector('.nav-container');
         navContainer.appendChild(menuToggle);
         
+        // Style initial du menu mobile
+        navLinks.style.cssText = `
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(10px);
+            flex-direction: column;
+            padding: 1rem;
+            gap: 0.5rem;
+            display: none;
+            border-top: 1px solid var(--border);
+            z-index: 1000;
+        `;
+        
+        // Gestion du clic
         menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const icon = menuToggle.querySelector('i');
-            icon.className = navLinks.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+            const isActive = navLinks.style.display === 'flex';
+            navLinks.style.display = isActive ? 'none' : 'flex';
+            menuToggle.innerHTML = isActive ? '☰' : '✕';
         });
         
-        // Style mobile menu
-        if (navLinks.classList.contains('nav-links')) {
-            navLinks.style.cssText = `
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(15, 23, 42, 0.95);
-                backdrop-filter: blur(10px);
-                flex-direction: column;
-                padding: 1rem;
-                gap: 0.5rem;
-                display: none;
-            `;
-        }
+        // Fermer le menu en cliquant sur un lien
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navLinks.style.display = 'none';
+                    menuToggle.innerHTML = '☰';
+                }
+            });
+        });
     }
 };
 
 // Handle mobile menu on resize
 window.addEventListener('resize', () => {
-    if (window.innerWidth <= 768) {
-        createMobileMenu();
+    const navLinks = document.querySelector('.nav-links');
+    const menuToggle = document.querySelector('.menu-toggle');
+    
+    if (window.innerWidth > 768) {
+        // Desktop - reset styles
+        navLinks.style.cssText = '';
+        if (menuToggle) {
+            menuToggle.remove();
+        }
+    } else {
+        // Mobile - create menu if not exists
+        if (!menuToggle) {
+            createMobileMenu();
+        }
     }
 });
 
@@ -209,6 +282,8 @@ emailLinks.forEach(link => {
             setTimeout(() => {
                 link.textContent = originalText;
             }, 2000);
+        }).catch(() => {
+            alert('Impossible de copier l\'email. Veuillez le copier manuellement: ' + email);
         });
     });
 });
@@ -246,6 +321,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const walk = (x - startX) * 2;
             gallery.scrollLeft = scrollLeft - walk;
         });
+
+        // Support tactile pour mobile
+        gallery.addEventListener('touchstart', (e) => {
+            isDown = true;
+            startX = e.touches[0].pageX - gallery.offsetLeft;
+            scrollLeft = gallery.scrollLeft;
+        });
+
+        gallery.addEventListener('touchend', () => {
+            isDown = false;
+        });
+
+        gallery.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            const x = e.touches[0].pageX - gallery.offsetLeft;
+            const walk = (x - startX) * 2;
+            gallery.scrollLeft = scrollLeft - walk;
+        });
     });
 });
 
@@ -280,3 +373,19 @@ if (counters.length > 0) {
     
     counters.forEach(counter => counterObserver.observe(counter));
 }
+
+// ==================== Page Load Animations ====================
+document.addEventListener('DOMContentLoaded', () => {
+    // Animation d'entrée pour le hero
+    const heroContent = document.querySelector('.hero-content');
+    if (heroContent) {
+        heroContent.style.opacity = '0';
+        heroContent.style.transform = 'translateY(30px)';
+        heroContent.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        
+        setTimeout(() => {
+            heroContent.style.opacity = '1';
+            heroContent.style.transform = 'translateY(0)';
+        }, 300);
+    }
+});
