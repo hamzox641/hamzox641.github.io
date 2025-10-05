@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// ==================== Form Validation & Submission ====================
+// ==================== Form Validation & Submission avec EmailJS ====================
 function isValidEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
@@ -65,6 +65,7 @@ if (contactForm) {
         const email = document.getElementById('email').value.trim();
         const subject = document.getElementById('subject').value.trim() || 'Contact depuis le portfolio';
         const message = document.getElementById('message').value.trim();
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
         
         if (!name || !email || !message) {
             alert('Veuillez remplir tous les champs obligatoires');
@@ -76,17 +77,33 @@ if (contactForm) {
             return;
         }
         
-        // Créer le lien mailto
-        const mailtoLink = `mailto:hamzanadif73@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+        // Désactiver le bouton pendant l'envoi
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
         
-        // Ouvrir le client email
-        window.location.href = mailtoLink;
+        // Paramètres pour EmailJS
+        const templateParams = {
+            from_name: name,
+            from_email: email,
+            subject: subject,
+            message: message,
+            to_email: 'hamzanadif73@gmail.com'
+        };
         
-        // Réinitialiser le formulaire après un court délai
-        setTimeout(() => {
-            alert('✅ Votre client email va s\'ouvrir. Message envoyé avec succès!');
-            contactForm.reset();
-        }, 1000);
+        // Envoi via EmailJS
+        emailjs.send('service_tnd07yn', 'template_p8gv71i', templateParams)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                alert('✅ Message envoyé avec succès! Je vous répondrai bientôt.');
+                contactForm.reset();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer le message';
+            }, function(error) {
+                console.log('FAILED...', error);
+                alert('❌ Erreur lors de l\'envoi. Veuillez réessayer ou me contacter directement à hamzanadif73@gmail.com');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer le message';
+            });
     });
 }
 
