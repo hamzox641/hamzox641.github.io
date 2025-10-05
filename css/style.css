@@ -92,6 +92,16 @@ nav {
     width: 100%;
 }
 
+.nav-links .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+}
+
+.nav-links .btn::after {
+    display: none;
+}
+
 /* ==================== Hero Section ==================== */
 .hero {
     min-height: 100vh;
