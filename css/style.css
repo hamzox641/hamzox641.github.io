@@ -589,14 +589,31 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 2rem;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
+/* Cas où il n'y a qu'un seul blog - MAINTAIN SQUARE */
+.gallery-grid > .gallery-item:only-child {
+    max-width: 600px;
+    margin: 0 auto;
+    grid-column: 1 / -1;
+    display: flex;
+    justify-self: center;
+    width: 100%;
+}
+
+/* Carte */
 .gallery-item {
     background: var(--dark-light);
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid var(--border);
     transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
 }
 
 .gallery-item:hover {
@@ -604,13 +621,18 @@ footer {
     box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
 }
 
+/* Container images - MAINTAIN FIXED HEIGHT */
 .gallery-images-scroll {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: thin;
     scrollbar-color: var(--primary) var(--dark);
-    height: 350px;
+    height: 300px; /* HAUTEUR FIXE POUR LE CARRÉ */
+    background: var(--dark);
+    align-items: center; /* CENTRER VERTICALEMENT */
+    justify-content: center; /* CENTRER HORIZONTALEMENT */
+    padding: 10px;
 }
 
 .gallery-images-scroll::-webkit-scrollbar {
@@ -626,14 +648,19 @@ footer {
     border-radius: 4px;
 }
 
+/* Images - CENTRÉES ET RESPONSIVES */
 .gallery-images-scroll img {
-    min-width: 100%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    scroll-snap-align: start;
+    min-width: auto;
+    max-width: 90%;
+    max-height: 90%;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+    scroll-snap-align: center;
     transition: transform 0.5s ease;
     cursor: grab;
+    display: block;
+    border-radius: 8px;
 }
 
 .gallery-images-scroll img:active {
@@ -646,6 +673,9 @@ footer {
 
 .gallery-info {
     padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .gallery-location {
@@ -658,7 +688,44 @@ footer {
     color: var(--text);
     font-size: 1.2rem;
     line-height: 1.5;
-    margin: 0;
+    margin: 0 0 1rem 0;
+}
+
+.gallery-description {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .gallery-grid > .gallery-item:only-child {
+        max-width: 100%;
+    }
+    
+    .gallery-images-scroll {
+        height: 250px;
+    }
+    
+    .gallery-info {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-images-scroll {
+        height: 200px;
+    }
+    
+    .gallery-images-scroll img {
+        max-width: 95%;
+        max-height: 95%;
+    }
 }
 
 /* ==================== Responsive ==================== */
